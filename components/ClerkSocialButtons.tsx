@@ -43,7 +43,7 @@ export function ClerkSocialButtons({ mode }: SocialButtonsProps) {
   const signInState = useSignIn();
   const signUpState = useSignUp();
 
-  const isLoaded = mode === "sign-in" ? signInState.isLoaded : signUpState.isLoaded;
+  const isLoaded = mode === "sign-in" ? !!signInState.signIn : !!signUpState.signUp;
   const isDisabled = !isLoaded || loadingStrategy !== null;
 
   const handleClick = async (strategy: ProviderItem["strategy"]) => {
